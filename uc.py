@@ -10,6 +10,7 @@ import os
 header = b"Unit Converter Sederhana :)"
 satuan = {None}
 selesai = False
+dir = os.getcwd()
 
 def desimal(nilai):
   try:
@@ -31,7 +32,7 @@ def pesan(pesan):
 def simpanSatuan():
     global satuan
     try:
-        with open('d:\\uc.var','wb') as data:
+        with open(dir+'uc.var','wb') as data:
             pickle.dump({'ident':header,'data':satuan}, data)
     except:
         pesan('Terjadi kesalahan ketika sedang menyimpan file data unit,\nperubahan data unit tidak tersiman.')
@@ -39,8 +40,8 @@ def simpanSatuan():
 def muatSatuan():
     global satuan, selesai
     try:
-        if os.path.exists('d:\\uc.var'):
-            with open('d:\\uc.var','rb') as data:
+        if os.path.exists(dir+'uc.var'):
+            with open(dir+'uc.var','rb') as data:
                 satuan = pickle.load(data)['data']
     except:
         selesai = True
