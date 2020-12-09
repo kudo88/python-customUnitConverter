@@ -10,7 +10,7 @@ import os
 header = b"Unit Converter Sederhana :)"
 satuan = {None}
 selesai = False
-dir = os.getcwd()
+dir = os.path.dirname(__file__) 
 
 def desimal(nilai):
   try:
